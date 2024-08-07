@@ -5,4 +5,4 @@ The Population wighted Cooling Degree Days and Heating Degree Days Calculated ba
 ![image](https://github.com/user-attachments/assets/86e8c1b3-1999-46c7-bcb2-d34a1591e77f)
 
 
-For Population data we have used the recently published data by Wang et al., 2022 (https://www.nature.com/articles/s41597-022-01675-x) and the climate data we have used the ENSEMBLE of CORDEX RCMs. 
+For population data, we have used the recently published data by Wang et al. (2022) (https://www.nature.com/articles/s41597-022-01675-x), and for climate data, we have used the ensemble of CORDEX RCMs
