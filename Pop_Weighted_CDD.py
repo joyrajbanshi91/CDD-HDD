@@ -24,19 +24,11 @@ for subdir, dirs, files in os.walk(CDD_dir):
             cdd_file_list.append(os.path.join(subdir, file))
         
 
-#cdd_file_1 =[cdd_file_list[18]]
-#cdd_file_2 = cdd_file_list[0:3]  
-#cdd_file_3 = cdd_file_list[3:18]    
-#cdd_file_list = cdd_file_2 + cdd_file_1 + cdd_file_3
-
-
-
 
 CDD=[]
 for ras in cdd_file_list:
     raster = rasterio.open(ras) 
     array = raster.read()
-#    print(array.shape)
     array = np.asarray(array.reshape(array.shape[1], array.shape[2]))
     array[array<0]=np.nan
     CDD.append((array))
@@ -64,19 +56,18 @@ Population=[]
 for ras in final_files:
     raster = rasterio.open(ras) 
     array = raster.read()
-#    print(array.shape)
     array = np.asarray(array.reshape(array.shape[1], array.shape[2]))
     array[array<0]=np.nan
     array[array==255]=np.nan
     Population.append((array))
 
 Final_Population = np.array(Population)
-#Final_Population = Final_Population[:, :191, :142]
+
 
 df = pd.read_csv(r"E:\Cordex_Data\India_Final_Cordex\India_States_CDD_HDD\West_Bengal_CDD_HDD\West_Bengal_Population\West_Bengal_Population_2010_2100.csv")
 
 Tot_Population=df['West_Bengal_Population_Numbers'][:]
-#Gujarat_Future_Population = Gujarat_Future_Population.reset_index(drop=True)
+
 
 Pop_CDD_final= []
 without_pop_CDD =[]
