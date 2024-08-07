@@ -23,10 +23,6 @@ for subdir, dirs, files in os.walk(HDD_dir):
         if ext in extensions:
             HDD_file_list.append(os.path.join(subdir, file))
 
-#hdd_file_1 =HDD_file_list[0:3]
-#hdd_file_2 = [HDD_file_list[18]]
-#hdd_file_3 = HDD_file_list[3:18]   
-#HDD_file_list =  hdd_file_1+hdd_file_2+hdd_file_3 
 
 
 HDD=[]
@@ -40,7 +36,6 @@ for ras in HDD_file_list:
     
 Final_HDD = np.array(HDD)
 
-#Final_HDD = Final_HDD[:, :713, :321]
 
 Popdir = r'E:\Cordex_Data\India_Final_Cordex\India_States_CDD_HDD\West_Bengal_CDD_HDD\West_Bengal_Population\Population'
 extensions = ('.tif')
@@ -60,21 +55,18 @@ Population=[]
 for ras in file_list:
     raster = rasterio.open(ras) 
     array = raster.read()
-#    print(array.shape)
     array = np.asarray(array.reshape(array.shape[1], array.shape[2]))
     array[array<0]=np.nan
     array[array==255]=np.nan
     Population.append((array))
 
 Final_Population = np.array(Population)
-#Final_Population = Final_Population[:, :191, :142]
 
 
 df = pd.read_csv(r"E:\Cordex_Data\India_Final_Cordex\India_States_CDD_HDD\West_Bengal_CDD_HDD\West_Bengal_Population\West_Bengal_Population_2010_2100.csv")
 
 Tot_Population=df['West_Bengal_Population_Numbers'][:]
 
-#Gujarat_Future_Population = Gujarat_Future_Population.reset_index(drop=True)
 
 Pop_HDD_final= []
 without_pop_HDD =[]
